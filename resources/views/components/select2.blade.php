@@ -1,5 +1,4 @@
 <div
-    wire:key="something-unique"
     wire:ignore
     x-data="{
         multiple: {{ $multiple ? 'true' : 'false' }},
