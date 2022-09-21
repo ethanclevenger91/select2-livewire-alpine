@@ -1,10 +1,11 @@
-<div 
+<div
+    wire:key="something-unique"
+    wire:ignore
     x-data="{
         multiple: {{ $multiple ? 'true' : 'false' }},
         value: @entangle($attributes->wire('model')),
         options: @js($options),
         init() {
-            
             let bootSelect2 = () => {
                 $(this.$refs.select).select2({
                     multiple: this.multiple,
@@ -31,7 +32,7 @@
                     }
                 }
             }
- 
+
             let refreshSelect2 = () => {
                 console.log(this.$refs.select);
                 $(this.$refs.select).select2('destroy')
@@ -40,21 +41,19 @@
             }
 
             bootSelect2()
- 
+
             $(this.$refs.select).on('change', () => {
                 let currentSelection = $(this.$refs.select).select2('data')
                 this.value = this.multiple
                     ? currentSelection.map(i => i.id)
                     : currentSelection[0].id
             })
- 
+
             this.$watch('value', () => refreshSelect2())
             this.$watch('options', () => refreshSelect2())
-            Livewire.on('modalOpened', () => refreshSelect2())
-            Livewire.hook('message.processed' , () => refreshSelect2())
         },
     }">
-    <select 
+    <select
         x-ref="select"
         {{ $attributes->whereDoesntStartWith('wire')->merge(['class' => '']) }}
     >
