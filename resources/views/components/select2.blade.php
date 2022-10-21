@@ -52,6 +52,7 @@
             this.$watch('options', () => refreshSelect2())
         },
     }">
+    @dump($multiple)
     <select
         x-ref="select"
         {{ $attributes->whereDoesntStartWith('wire')->merge(['class' => '']) }}
