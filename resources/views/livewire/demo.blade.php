@@ -13,6 +13,16 @@
             class="w-full"
             />
     </div>
+    
+    <div class="form-group">
+        <label for="from">Pick One:</label>
+        <x-select2
+            :options="$this->options"
+            :multiple="true"
+            wire:model="form.value"
+            class="w-full"
+            />
+    </div>
 
     <div class="d-flex justify-content-end align-items-center">
         <button type="submit" 
