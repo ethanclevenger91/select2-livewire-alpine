@@ -7,7 +7,8 @@ use Livewire\Component;
 class Demo extends Component {
 
 	private $default_form_state = [
-		'value' => [],
+		'from' => '',
+		'to' => [],
 	];
 
 	public $form;

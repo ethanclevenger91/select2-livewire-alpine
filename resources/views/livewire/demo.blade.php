@@ -9,17 +9,17 @@
         <label for="from">Pick One:</label>
         <x-select2
             :options="$this->options"
-            wire:model="form.value"
+            wire:model="form.from"
             class="w-full"
             />
     </div>
     
     <div class="form-group">
-        <label for="from">Pick One:</label>
+        <label for="to">Pick Some:</label>
         <x-select2
             :options="$this->options"
             :multiple="true"
-            wire:model="form.value"
+            wire:model="form.to"
             class="w-full"
             />
     </div>
